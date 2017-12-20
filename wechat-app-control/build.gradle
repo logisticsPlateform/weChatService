@@ -1,0 +1,8 @@
+//apply plugin: 'war'
+bootRepackage {
+    enabled = true
+    mainClass = 'com.suixingpay.xlm.app.service.XlmAppServiceApplication'
+}
+dependencies {
+    compile project(":wechat-app-core")
+}
