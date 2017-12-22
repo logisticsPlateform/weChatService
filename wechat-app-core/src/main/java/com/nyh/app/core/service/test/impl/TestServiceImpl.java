@@ -8,7 +8,10 @@ import com.nyh.app.core.orm.test.domain.Test;
 import com.nyh.app.core.orm.test.mapper.TestMapper;
 import com.nyh.app.core.service.test.TestService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class TestServiceImpl implements TestService {
 	
 	@Autowired
@@ -25,6 +28,7 @@ public class TestServiceImpl implements TestService {
 	public Test findUserByName(String name) {
 		// TODO Auto-generated method stub
 		Test findUserByName = testMapper.findUserByName(name);
+		log.info("findUserByName[{}]",findUserByName);
 		return findUserByName;
 	}
 
