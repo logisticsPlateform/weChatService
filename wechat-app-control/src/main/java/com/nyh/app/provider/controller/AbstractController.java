@@ -37,10 +37,10 @@ public class AbstractController {
             R r = function.apply(param);
             return ResponseEntity.ok(r);
         }catch (ServiceException serviceException) {
-            log.info("controller 内部异常：{}", serviceException.getMessage(), serviceException);
+            log.info("controller 内部业务异常：{}", serviceException.getMessage(), serviceException);
             return error(serviceException);
         }catch (AbstractException abstractException) {
-            log.warn("controller 内部异常：{}", abstractException.getMessage(), abstractException);
+            log.warn("controller 主动系统异常：{}", abstractException.getMessage(), abstractException);
             return error(abstractException);
         }catch (Exception e) {
             log.error("controller 内部异常：{}", e.getMessage(), e);
@@ -61,10 +61,10 @@ public class AbstractController {
             function.accept(param);
             return ok();
         }catch (ServiceException serviceException) {
-            log.info("controller 内部异常：{}", serviceException.getMessage(), serviceException);
+            log.info("controller 内部业务异常：{}", serviceException.getMessage(), serviceException);
             return error(serviceException);
         }catch (AbstractException abstractException) {
-            log.warn("controller 内部异常：{}", abstractException.getMessage(), abstractException);
+            log.warn("controller 主动系统异常：{}", abstractException.getMessage(), abstractException);
             return error(abstractException);
         }catch (Exception e) {
             log.error("controller 内部异常：{}", e.getMessage(), e);
@@ -83,10 +83,10 @@ public class AbstractController {
             T t = function.get();
             return ok(t);
         }catch (ServiceException serviceException) {
-            log.info("controller 内部异常：{}", serviceException.getMessage(), serviceException);
+            log.info("controller 内部业务异常：{}", serviceException.getMessage(), serviceException);
             return error(serviceException);
         }catch (AbstractException abstractException) {
-            log.warn("controller 内部异常：{}", abstractException.getMessage(), abstractException);
+            log.warn("controller 主动系统异常：{}", abstractException.getMessage(), abstractException);
             return error(abstractException);
         } catch (Exception e) {
             log.error("controller 内部异常：{}", e.getMessage(), e);
