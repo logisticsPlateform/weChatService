@@ -1,30 +1,3 @@
 spring:
   profiles:
     active: dev
----
-spring:
-  profiles: dev
-  datasource:
-     url: jdbc:mysql://39.106.51.17:3306/test
-     username: root
-     password: root123
-     driver-class-name: com.mysql.jdbc.Driver
-     
-
-my:
-  name: nxd
----
-spring:
-  profiles: prod
-  datasource:
-     url: jdbc:mysql://39.106.51.17:3306/test
-     username: root
-     password: root123
-     driver-class-name: com.mysql.jdbc.Driver
-     
-logback:
-  logdir: /Users/niu_xd/log
-  appname: server
-  
-my:
-  name: nxd
