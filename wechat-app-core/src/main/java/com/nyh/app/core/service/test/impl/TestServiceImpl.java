@@ -1,6 +1,7 @@
 package com.nyh.app.core.service.test.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.nyh.app.common.vo.test.TestVo;
@@ -16,6 +17,9 @@ public class TestServiceImpl implements TestService {
 	
 	@Autowired
 	private TestMapper testMapper;
+	
+	@Value("${my.name}")
+	private String myName;
 
 	@Override
 	public String insert(TestVo testVo) {
@@ -28,7 +32,7 @@ public class TestServiceImpl implements TestService {
 	public Test findUserByName(String name) {
 		// TODO Auto-generated method stub
 		Test findUserByName = testMapper.findUserByName(name);
-		log.info("findUserByName[{}]",findUserByName);
+		log.info("my.name===={}",myName);
 		return findUserByName;
 	}
 

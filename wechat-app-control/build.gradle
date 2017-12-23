@@ -6,6 +6,8 @@ bootRepackage {
 dependencies {
     compile project(":wechat-app-core")
     //spring boot
+    compile "org.springframework.boot:spring-boot-starter:$springBootVersion"
     compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-aop:$springBootVersion"
     testCompile "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
 }
