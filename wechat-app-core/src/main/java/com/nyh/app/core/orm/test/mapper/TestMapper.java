@@ -1,5 +1,7 @@
 package com.nyh.app.core.orm.test.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -20,5 +22,8 @@ public interface TestMapper {
 
     @Insert("INSERT INTO USER(UUID, NAME, AGE, SEX) VALUES(REPLACE(UUID(),'-',''), #{name,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR})")
     void insert(TestVo testVo);
+
+    @Select("SELECT * FROM USER")
+	List<Test> findAll();
 
 }

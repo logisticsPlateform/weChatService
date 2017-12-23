@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.pagehelper.PageInfo;
+import com.nyh.app.common.vo.PageVo;
 import com.nyh.app.common.vo.test.TestVo;
 import com.nyh.app.core.orm.test.domain.Test;
 import com.nyh.app.core.service.test.TestService;
@@ -30,6 +32,11 @@ public class TestController extends AbstractController {
 	@GetMapping("/find/{name}")
 	public ResponseEntity<Test> findUserByName(@PathVariable String name) throws IOException {
 		return wrapperFunction((p)->testService.findUserByName(p),name);
+	}
+	
+	@PostMapping("/findAll")
+	public ResponseEntity<PageInfo<Test>> findAll(@RequestBody PageVo pageVo) throws IOException {
+		return wrapperFunction((p)->testService.findAll(p),pageVo);
 	}
 
 }

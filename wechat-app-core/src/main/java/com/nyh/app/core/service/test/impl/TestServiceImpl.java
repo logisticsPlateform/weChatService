@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.nyh.app.common.vo.PageVo;
 import com.nyh.app.common.vo.test.TestVo;
 import com.nyh.app.core.orm.test.domain.Test;
 import com.nyh.app.core.orm.test.mapper.TestMapper;
@@ -23,17 +26,22 @@ public class TestServiceImpl implements TestService {
 
 	@Override
 	public String insert(TestVo testVo) {
-		// TODO Auto-generated method stub
 		testMapper.insert(testVo);
 		return "success";
 	}
 
 	@Override
 	public Test findUserByName(String name) {
-		// TODO Auto-generated method stub
 		Test findUserByName = testMapper.findUserByName(name);
 		log.info("my.name===={}",myName);
 		return findUserByName;
+	}
+
+	@Override
+	public PageInfo<Test> findAll(PageVo pageVo) {
+		PageHelper.startPage(pageVo);
+		PageInfo<Test> pageInfo = new PageInfo<Test>(testMapper.findAll());
+		return pageInfo;
 	}
 
 }
