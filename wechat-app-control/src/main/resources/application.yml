@@ -1,6 +1,5 @@
 #选择环境
 spring:
-<<<<<<< HEAD
   datasource:
      url: jdbc:mysql://39.106.51.17:3306/test
      username: root
@@ -8,7 +7,6 @@ spring:
      driver-class-name: com.mysql.jdbc.Driver
 server:
     port: 8888
-=======
   profiles:
     active: dev
->>>>>>> 7f417c763d13b5a0c25420ab1fc2fa97f78734d5
+
