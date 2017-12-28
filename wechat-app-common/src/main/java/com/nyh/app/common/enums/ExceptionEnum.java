@@ -1,10 +1,3 @@
-/**
- * All rights Reserved, Designed By Suixingpay.
- *
- * @author: 戈子根
- * @date: 2017/3/31 19:46
- * @copyright: ©2017 Suixingpay. All rights reserved. 注意：本内容仅限于随行付支付有限公司内部传阅，禁止外泄以及用于其他的商业用途。
- */
 package com.nyh.app.common.enums;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;

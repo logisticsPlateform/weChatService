@@ -49,7 +49,7 @@ public class AppLogAspect {
         long endTime = System.currentTimeMillis();
         Gson gson = new Gson();
 
-        log.info("Request URL: {}; Request Method: {}; IP: {}; User-Agent: {}; Class Method: {}; Cookies: {}; Params: {}; Result：{}; 耗时: {}", 
+        log.info("【Request URL】: {}; 【Request Method】: {}; 【IP】: {}; 【User-Agent】: {}; 【Class Method】: {}; 【Cookies】: {}; 【Params】: {}; 【Result】：{}; 【耗时】: {}", 
     			request.getRequestURL().toString(), 
     			request.getMethod(), 
     			request.getRemoteAddr(), 

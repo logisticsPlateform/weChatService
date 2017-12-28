@@ -9,3 +9,8 @@ spring:
 #自定义属性配置 
 my:
   name: nxd
+  
+#微信通过code获取sessionKey
+wechat:  
+  get-session-key:
+    url: https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code
