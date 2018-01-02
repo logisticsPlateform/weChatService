@@ -29,6 +29,7 @@ public interface ${class?cap_first}Mapper {
 		"(<#list colList as col>${col.columnName}<#if col_has_next>,</#if></#list>)" +
 		"VALUES" +
 		"(<#list colList as col><#if col.humpColumnName?uncap_first == 'uuid'>REPLACE(UUID(),'-','')</#if><#if col.humpColumnName?uncap_first != 'uuid'><#noparse>#{</#noparse>${col.humpColumnName?uncap_first}<#noparse>}</#noparse></#if><#if col_has_next>, </#if></#list>)")
+	@SelectKey(statement = "select REPLACE(UUID(),'-','') uuid", keyProperty = "uuid", before = true, resultType = ${class}.class, keyColumn = "UUID" )
     void insert(${class?cap_first}Po po);
 
     @Select("SELECT * FROM ${tableName}")
