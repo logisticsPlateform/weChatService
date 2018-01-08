@@ -31,4 +31,7 @@ public interface UserInfoMapper {
     @Select("SELECT * FROM USER_INFO WHERE OPEN_ID = #{openId}")
 	UserInfo findByOpenId(String openId);
 
+    @Select("SELECT * FROM USER_INFO WHERE uuid = #{userId}")
+	UserInfo findOne(String userId);
+
 }

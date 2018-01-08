@@ -19,4 +19,6 @@ public interface UserInfoService {
 
 	PageInfo<UserInfo> findAll(PageVo pageVo);
 
+	UserInfo findOne(String userId);
+
 }

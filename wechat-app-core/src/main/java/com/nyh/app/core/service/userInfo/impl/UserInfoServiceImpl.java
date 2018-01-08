@@ -43,6 +43,9 @@ public class UserInfoServiceImpl implements UserInfoService {
 	@Value("${wechat.get-session-key.url}")
 	private String wechatGetSessionKeyUrl;
 	
+	/**
+	 * 登陆
+	 */
 	@Override
 	public Map<String, Object> insert() {
 		HttpServletRequest request = WebContext.getHttpServletRequest();
@@ -89,6 +92,11 @@ public class UserInfoServiceImpl implements UserInfoService {
 		PageHelper.startPage(pageVo);
 		PageInfo<UserInfo> pageInfo = new PageInfo<UserInfo>(mapper.findAll());
 		return pageInfo;
+	}
+
+	@Override
+	public UserInfo findOne(String userId) {
+		return mapper.findOne(userId);
 	}
 
 }
