@@ -5,10 +5,17 @@ spring:
      username: root
      password: root123
      driver-class-name: com.mysql.jdbc.Driver
+     
 #日志路径，名称    
 logback:
   logdir: /Users/niu_xd/log
   appname: server
+  
+#mybatis字段名驼峰转换
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
+  	
 #自定义属性配置 
 my:
   name: nxd
