@@ -10,16 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.nyh.app.common.constant.AppConstant;
 import com.nyh.app.core.context.WebContext;
 
 /**
  * 初始化Web上下文
  */
-@Component
-public class WebContextFilter extends OncePerRequestFilter {
+//@Component
+/*public class WebContextFilter extends OncePerRequestFilter {
 
-    /**
+    *//**
      * @param request
      * @param response
      * @param filterChain
@@ -27,7 +26,7 @@ public class WebContextFilter extends OncePerRequestFilter {
      * @throws IOException
      * @see org.springframework.web.filter.OncePerRequestFilter#doFilterInternal(javax.servlet.http.HttpServletRequest,
      *      javax.servlet.http.HttpServletResponse, javax.servlet.FilterChain)
-     */
+     *//*
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
@@ -39,4 +38,4 @@ public class WebContextFilter extends OncePerRequestFilter {
             WebContext.destory();
         }
     }
-}
+}*/
