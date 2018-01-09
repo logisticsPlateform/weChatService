@@ -15,14 +15,14 @@ import com.nyh.app.provider.controller.AbstractController;
 @RequestMapping("/login")
 public class LoginController extends AbstractController {
 	
-	/*@Autowired
+	@Autowired
 	private UserInfoService userInfoService;
 	
 	@GetMapping("/doLogin")
 	@IgnoreUserId
 	public ResponseEntity<Map<String, Object>> doLogin() {
 		return wrapperSupplier(()->userInfoService.insert());
-	}*/
+	}
 	
 //	@GetMapping("/findUserByOpenId/{openId}")
 //	@IgnoreUserId
