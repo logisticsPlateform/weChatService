@@ -13,6 +13,7 @@ import com.github.pagehelper.PageInfo;
 import com.nyh.app.common.vo.PageVo;
 import com.nyh.app.core.orm.index.domain.Pubinfo;
 import com.nyh.app.core.service.index.PubinfoService;
+import com.nyh.app.provider.anotation.IgnoreUserId;
 import com.nyh.app.provider.controller.AbstractController;
 
 @RestController
@@ -23,6 +24,7 @@ public class PubinfoController extends AbstractController {
 	private PubinfoService pubinfoService;
 	
 	@PostMapping("/findAll")
+	@IgnoreUserId
 	public ResponseEntity<PageInfo<Pubinfo>> findAll(@RequestBody PageVo pageVo) throws IOException {
 		return wrapperFunction((p)->pubinfoService.findAll(p),pageVo);
 	}

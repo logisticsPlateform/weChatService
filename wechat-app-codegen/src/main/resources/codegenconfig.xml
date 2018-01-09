@@ -5,7 +5,7 @@
 	<properties>
 		<property name="company" value="nyh"></property>
 		<property name="project" value="app"></property>
-		<property name="module" value="user"></property>
+		<property name="module" value="userInfo"></property>
 		<property name="developer" value="niuxudong[niu_xu_dong@163.com]"></property>
 	</properties>
 
@@ -17,8 +17,8 @@
 		<password>root123</password>
 	</database>
 
-	<table tableName="USER">
-		<variable name="class" value="User" />
+	<table tableName="USER_INFO">
+		<variable name="class" value="UserInfo" />
 	</table>
 
 	<templates basepath="/Users/niu_xd/weChatService/wechat-app-codegen/src/main/resources/template">
