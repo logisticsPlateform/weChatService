@@ -16,6 +16,7 @@ import com.nyh.app.common.vo.PageVo;
 import com.nyh.app.common.vo.test.TestVo;
 import com.nyh.app.core.orm.test.domain.Test;
 import com.nyh.app.core.service.test.TestService;
+import com.nyh.app.provider.anotation.IgnoreUserId;
 import com.nyh.app.provider.controller.AbstractController;
 
 @RestController
@@ -30,6 +31,7 @@ public class TestController extends AbstractController {
 	}
 	
 	@GetMapping("/find/{name}")
+	
 	public ResponseEntity<Test> findUserByName(@PathVariable String name) throws IOException {
 		return wrapperFunction((p)->testService.findUserByName(p),name);
 	}
