@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.nyh.app.common.constant.AppConstant;
 import com.nyh.app.core.context.WebContext;
 
 /**
@@ -32,7 +31,7 @@ public class WebContextFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         WebContext.init(request, response);
-        WebContext.initUserId(request.getHeader(AppConstant.WX_HEADER_USER_ID));
+//        WebContext.initUserId(request.getHeader(AppConstant.WX_HEADER_USER_ID));
         try {
             filterChain.doFilter(request, response);
         } finally {

@@ -74,7 +74,7 @@ public class UserIdInterceptor extends HandlerInterceptorAdapter {
                 return false;
 			}
             
-            WebContext.initUserId(request.getHeader(AppConstant.WX_HEADER_USER_ID));
+            WebContext.initUserId(userId);
 
             return true;
         } catch (Exception e) {
