@@ -50,5 +50,5 @@ public class PublishVo {
 		/**
 		 * 创建日期
 		 */
-		private	java.util.Date	createDate;
+		private	String	createDate;
 }

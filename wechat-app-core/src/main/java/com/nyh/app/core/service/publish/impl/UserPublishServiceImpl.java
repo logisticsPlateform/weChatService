@@ -1,14 +1,13 @@
 package com.nyh.app.core.service.publish.impl;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.nyh.app.common.exception.SystemException;
+import com.nyh.app.common.util.DateDeal;
 import com.nyh.app.common.util.VoToPo;
 import com.nyh.app.common.vo.publish.PublishVo;
 import com.nyh.app.core.context.WebContext;
@@ -25,10 +24,8 @@ public class UserPublishServiceImpl implements UserPublishService {
 	@Autowired
 	private PubinfoMapper  pubinfo;
 
-
 	@Override
 	public PublishVo saveimage(MultipartFile image){
-		
 		String userId = WebContext.getUserId();
 		File file = new File("C://Users/Administrator/Desktop/tomcat8/webapps/ROOT/images/"+userId);
 		boolean exists = file.exists();
@@ -61,40 +58,30 @@ public class UserPublishServiceImpl implements UserPublishService {
 				 publishvo.setImageName(currentTimeMillis+".jpg");
 				 int imageSize = (int)imageFile.length();
 				 publishvo.setImageSize(imageSize);
-				
 				return publishvo;
 			} catch (Exception e) {
 				log.error("上传图片异常",e);
 				throw new SystemException("系统繁忙");
-				
 			} 
 		}
 		return null;
-		// file.transferTo(new File("C://Users/Administrator/Desktop/tomcat8/webapps/ROOT/qq.jpg")); 
-		 
 	}
 
 	@Override
 	public PublishVo savecontent(PublishVo pub) {
 		// TODO Auto-generated method stub
 		String userId = WebContext.getUserId();
+		pub.setUserId(userId);
+		String currentDateTime = DateDeal.currentDateTime();
+		pub.setCreateDate(currentDateTime);
+		String sub_imagUrl = pub.getImageUrl().substring(1);
+		pub.setImageUrl(sub_imagUrl);
 		System.out.println("pub=======>"+pub);
 		PubinfoPo pubinfoPo = new PubinfoPo();
 		VoToPo.copyProperties(pubinfoPo, pub);
-		pubinfoPo.setUserId(userId);
-		Date date = new Date();
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String create_date = simpleDateFormat.format(date);
-		pubinfoPo.setCreateDate(create_date);
 		System.out.println("pubinfoPo=====>"+pubinfoPo);
-		String imageUrl = pubinfoPo.getImageUrl();
-		String sub_imageUrl = imageUrl.substring(1);
-		pubinfoPo.setImageUrl(sub_imageUrl);
-		
 		pubinfo.insert_po(pubinfoPo);
-		
-		
-		return null;
+		return pub;
 	}
 
 
