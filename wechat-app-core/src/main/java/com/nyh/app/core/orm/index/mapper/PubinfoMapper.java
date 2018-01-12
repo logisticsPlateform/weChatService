@@ -14,6 +14,7 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import com.nyh.app.core.orm.index.domain.Pubinfo;
+import com.nyh.app.core.orm.index.po.PubinfoPo;
 import com.nyh.app.common.vo.index.PubinfoVo;
 
 /**
@@ -34,5 +35,14 @@ public interface PubinfoMapper {
 
     @Select("SELECT UUID,USER_ID,CONTENT,IMAGE_URL,DATE_FORMAT(CREATE_DATE, '%Y-%m-%d %H:%i:%s') CREATE_DATE FROM PUBLISH_INFO ORDER BY CREATE_DATE DESC")
 	List<Pubinfo> findAll();
+    
+    @Select("SELECT COUNT(*) FROM PUBLISH_INFO")
+    int findCount();
+    
+    @Insert("INSERT INTO PUBLISH_INFO" +
+    		"(UUID,USER_ID,CONTENT,IMAGE_URL,CREATE_DATE)" +
+    		"VALUES" +
+    		"(REPLACE(UUID(),'-',''), #{userId}, #{content}, #{imageUrl}, #{createDate})")
+    void insert_po(PubinfoPo po);
 
 }

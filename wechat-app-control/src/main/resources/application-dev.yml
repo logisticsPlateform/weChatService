@@ -6,10 +6,7 @@ spring:
      password: root123
      driver-class-name: com.mysql.jdbc.Driver
 
-#mybatis字段名驼峰转换
-mybatis:
-  configuration:
-    mapUnderscoreToCamelCase: true
+
      
 #自定义属性配置 
 my:
@@ -28,3 +25,9 @@ wechatService:
     authEnable: true
     #放行路径
     excludePath: 
+    
+
+#mybatis驼峰转换 
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
