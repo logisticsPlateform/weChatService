@@ -32,7 +32,7 @@ public interface PubinfoMapper {
 		"(REPLACE(UUID(),'-',''), #{userId}, #{content}, #{imageUrl}, #{createDate})")
     void insert(PubinfoVo vo);
 
-    @Select("SELECT UUID,USER_ID,CONTENT,IMAGE_URL,DATE_FORMAT(CREATE_DATE, '%Y-%m-%d %H:%i:%s') CREATE_DATE FROM PUBLISH_INFO")
+    @Select("SELECT UUID,USER_ID,CONTENT,IMAGE_URL,DATE_FORMAT(CREATE_DATE, '%Y-%m-%d %H:%i:%s') CREATE_DATE FROM PUBLISH_INFO ORDER BY CREATE_DATE DESC")
 	List<Pubinfo> findAll();
 
 }
