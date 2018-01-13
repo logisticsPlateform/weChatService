@@ -26,6 +26,8 @@ import lombok.ToString;
 @ToString(callSuper = true, includeFieldNames = true)
 public class Pubinfo extends PubinfoPo {
 
-	 
+	private	String	avatarUrl;//用户头像
+	private	String	nickName;//用户昵称
+	
 	
 }
