@@ -51,7 +51,7 @@ public class UserPublishServiceImpl implements UserPublishService {
 				 File imageFile = new File(absolutePath+"/"+currentTimeMillis+".jpg");
 				 image.transferTo(imageFile);
 				 PublishVo publishvo = new PublishVo();
-				 String upload_image = "http://localhost:8888/images/"+userId+"/"
+				 String upload_image = "http://192.168.0.100:8888/images/"+userId+"/"
 						 + dircount+"/"+currentTimeMillis+".jpg";
 				 publishvo.setImageUrl(upload_image);
 				 publishvo.setImageType("image/jpeg");
@@ -74,6 +74,7 @@ public class UserPublishServiceImpl implements UserPublishService {
 		pub.setUserId(userId);
 		String currentDateTime = DateDeal.currentDateTime();
 		pub.setCreateDate(currentDateTime);
+		System.out.println("pub.getImageurl"+pub.getImageUrl());
 		String sub_imagUrl = pub.getImageUrl().substring(1);
 		pub.setImageUrl(sub_imagUrl);
 		System.out.println("pub=======>"+pub);
