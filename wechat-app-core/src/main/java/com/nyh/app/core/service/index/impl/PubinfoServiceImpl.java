@@ -1,5 +1,7 @@
 package com.nyh.app.core.service.index.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +39,11 @@ public class PubinfoServiceImpl implements PubinfoService {
 	public PageInfo<Pubinfo> findAll(PageVo pageVo) {
 		PageHelper.startPage(pageVo);
 		PageInfo<Pubinfo> pageInfo = new PageInfo<Pubinfo>(mapper.findAll());
+		List<Pubinfo> list = pageInfo.getList();
+		for (Pubinfo pubinfo : list) {
+			String[] split = pubinfo.getImageUrl().split(",");
+			pubinfo.setPicUrls(split);
+		}
 		return pageInfo;
 	}
 
